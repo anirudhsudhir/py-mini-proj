@@ -1,3 +1,5 @@
+![Project Test Status](https://github.com/anirudhsudhir/py-mini-proj/actions/workflows/run_test.yml/badge.svg)
+
 Python Sem 1 Mini-Project
 
 Team Members:  
