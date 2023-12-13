@@ -1,12 +1,11 @@
 import secrets
 
 
-class Vignere:
+class OneTimePad:
     def __init__(self, msg):
         self.msg = msg.upper()  # Message to be encrypted or decrypted
-        print(self.msg)
 
-    def generate_key(self):
+    def generate_key(self) -> str:
         length = len(self.msg)
         key = ""
         for _ in range(length):
@@ -14,9 +13,8 @@ class Vignere:
             key += chr(a)
         return key
 
-    def encrypt(self):
+    def encrypt_word(self) -> tuple[str, str]:
         key = self.generate_key()
-        # key = "JCHX"
         iterable_key = iter(
             key
         )  # Making the key iterable so as to use the next function to encrypt
@@ -32,14 +30,10 @@ class Vignere:
                 encrypted_msg += chr(encrypted_char)
             except:
                 break
-        print("The key used to encrypt is:", key)
-        print("-" * 50)
-        print("The encrypted message is:", encrypted_msg)
         return encrypted_msg, key
 
-    def decrypt(self, encrypted_msg, key):
+    def decrypt_word(self, encrypted_msg, key) -> str:
         decrypted_msg = ""
-        print("Encrypted Message being used is ", encrypted_msg)
         iterable_encrypted_msg = iter(encrypted_msg)
         iterable_key = iter(key)
         while True:
@@ -54,26 +48,7 @@ class Vignere:
                 else:
                     decrypted_val = 26 + decrypted_val
                 decrypted_char = chr(decrypted_val + 65)
-                print(
-                    current_key,
-                    current_msg,
-                    key_char,
-                    msg_char,
-                    decrypted_val,
-                    decrypted_char,
-                )
                 decrypted_msg += decrypted_char
             except:
                 break
-        print("Decrypted message is:")
         return decrypted_msg
-
-
-# sample = "This is a demo for the python mini project"
-sample = "FANZEZ"
-
-test1 = Vignere(sample)
-encrypted_message, encryption_key = test1.encrypt()
-print("Encrypted message is:", encrypted_message)
-print("-" * 50)
-print(test1.decrypt(encrypted_message, encryption_key))
