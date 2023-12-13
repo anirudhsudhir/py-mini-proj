@@ -1,4 +1,4 @@
-import random
+import secrets
 class Vignere:
     def __init__(self,msg):
         self.msg = msg              # Message to be encrypted or decrypted
@@ -7,7 +7,7 @@ class Vignere:
         length = len(self.msg)
         key = ""
         for _ in range(length):
-            a = random.randint(1,500)
+            a = secrets.choice(range(65,91))
             key+=chr(a)
         return key
     
