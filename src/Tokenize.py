@@ -6,7 +6,7 @@ from Encryption import *
 def encrypt_message(raw_text) -> tuple[str, str]:
     encryption_key = ""
     encrypted_message = ""
-    words = re.findall(regex_search_text, raw_text)
+    words = re.findall(regex_search_pattern, raw_text)
     for group in words:
         sep_char = group[1]
         current_word = group[0]
@@ -19,8 +19,8 @@ def encrypt_message(raw_text) -> tuple[str, str]:
 
 def decrypt_message(encrypted_text, key) -> str:
     decrypted_messsage = ""
-    words = re.findall(regex_search_text, encrypted_text)
-    keys = re.findall(regex_search_text, key)
+    words = re.findall(regex_search_pattern, encrypted_text)
+    keys = re.findall(regex_search_pattern, key)
     for index in range(len(words)):
         sep_char = words[index][1]
         current_word = words[index][0]
@@ -37,7 +37,7 @@ def print_output():
     print("Decrypted message is:", decrypted_message)
 
 
-regex_search_text = r"(\w+)(.?)"
+regex_search_pattern = r"(\w+)(.?)"
 user_text = "huh,interesting!"
 
 encrypted_message, encryption_key = encrypt_message(user_text)
