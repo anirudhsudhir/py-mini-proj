@@ -42,5 +42,3 @@ user_text = "huh,interesting!"
 
 encrypted_message, encryption_key = encrypt_message(user_text)
 decrypted_message = decrypt_message(encrypted_message, encryption_key)
-
-print_output()
