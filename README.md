@@ -12,7 +12,7 @@ Team Members:
 1. Clone this repository and navigate to the project directory:
    
     ```
-    https://github.com/anirudhsudhir/py-mini-proj.git
+    git clone https://github.com/anirudhsudhir/py-mini-proj.git
     cd py-mini-proj
     ```
 
