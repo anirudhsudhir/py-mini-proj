@@ -21,6 +21,7 @@ def createEncryptionWindow():
 
     EncryptWindow = tk.Tk()
     EncryptWindow.geometry("1000x1000")
+    EncryptWindow.attributes("-alpha", 0.7)
     message_text = tk.Text()
     encrypt_button = tk.Button(text="Encrypt Text", command=disp_encrypt)
     message_text_label = tk.Label(EncryptWindow, text="Enter the plaintext")
@@ -47,6 +48,7 @@ def createDecryptionWindow():
 
     DecryptWindow = tk.Tk()
     DecryptWindow.geometry("1000x1000")
+    DecryptWindow.attributes("-alpha", 0.7)
     encrypted_text_label = tk.Label(DecryptWindow, text="Encrypted Text")
     encrypted_text_label.pack()
     encrypted_textbox = tk.Text()
